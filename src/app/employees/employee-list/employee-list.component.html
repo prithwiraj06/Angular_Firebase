@@ -1,0 +1,27 @@
+  <div class="row">
+    <div class="col-md-12">
+        <h3 class="text-primary">Employee Details</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered table-striped table-hover">
+        <thead class="bg-info">
+          <tr>
+            <th>Employee Id</th>
+            <th>Employee Name</th>
+            <th>Mobile Number</th>
+            <th>Delete Employee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employee">
+            <td><a (click)="updateEmployee(emp)">{{emp.empCode}}</a></td>
+            <td>{{emp.userName}}</td>
+            <td>{{emp.mobile}}</td>
+            <td><i class="glyphicon glyphicon-trash" (click)="deleteEmployee(emp.id)"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

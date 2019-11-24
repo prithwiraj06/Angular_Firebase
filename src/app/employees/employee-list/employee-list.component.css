@@ -1,0 +1,14 @@
+.table {
+    text-align: center;
+}
+th {
+    text-align: center;
+}
+i {
+    color: #a94442;
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+}

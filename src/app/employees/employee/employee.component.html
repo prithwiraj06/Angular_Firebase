@@ -1,0 +1,29 @@
+<form class="form-horizontal" #empForm="ngForm" (ngSubmit)="saveEmployee(empForm)" autocomplete="off">
+  <div class="row">
+    <h3 class="text-primary">Provide Employee Details</h3>
+  </div>
+  <input type="hidden" [(ngModel)]="_empService.employee.id" name="id" #id="ngModel">
+  <div class="form-group" [class.has-error]="empCode.touched && empCode.invalid" [class.has-success]="empCode.valid">    
+    <input type="text" name="empCode" class="form-control" required placeholder="Employee Code" #empCode="ngModel" [(ngModel)]="_empService.employee.empCode">
+    <span class="text-danger" *ngIf="empCode.touched && empCode.invalid">user id is required</span>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-6" [class.has-error]="userName.touched && userName.invalid" [class.has-success]="userName.valid">
+        <input type="text" name="userName" class="form-control" required placeholder="Employee Name" #userName="ngModel" [(ngModel)]="_empService.employee.userName">
+        <span class="text-danger" *ngIf="userName.touched && userName.invalid">Employee name is required</span>
+      </div>
+      <div class="col-md-6" [class.has-error]="mobile.touched && mobile.invalid" [class.has-success]="mobile.valid">
+        <input type="text" name="mobile" class="form-control" required placeholder="mobile number" #mobile="ngModel" [(ngModel)]="_empService.employee.mobile">
+        <span class="text-danger" *ngIf="mobile.touched && mobile.invalid">mobile is required</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-info btn-block" [disabled]="empForm.invalid"><span class="fa fa-save"> Submit</span></button>
+  </div>
+  <div class="form-group">
+      <button type="button" (click)="resetFormData(empForm)" class="btn btn-danger btn-block" [disabled]="empForm.invalid"><span class="fa fa-times-circle"> Clear</span></button>
+    </div>
+</form>
+
